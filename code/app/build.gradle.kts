@@ -4,7 +4,7 @@ plugins {
 
 android {
     tasks.withType<Test>{
-        useJUnitPlatform()
+      useJUnitPlatform()
     }
 
     namespace = "com.example.listycity"

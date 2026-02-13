@@ -9,6 +9,9 @@ import java.util.List;
  */
 public class CityList {
 
+    /**
+     * The list that stores all cities.
+     */
     private List<City> cities = new ArrayList<>();
 
     /**
