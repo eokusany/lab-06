@@ -1,4 +1,5 @@
 package com.example.listycity;
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class CityListTest {
@@ -44,5 +45,47 @@ public class CityListTest {
 // Now the original city should be at position 1
         assertEquals(0, city.compareTo(cityList.getCities().get(0)));
         assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
+    }
+    @Test
+    void testHasCity() {
+        CityList cityList = new CityList();
+        City city = new City("Yellowknife", "NT");
+
+
+        Assert.assertFalse(cityList.hasCity(city));
+
+
+        cityList.add(city);
+        Assert.assertTrue(cityList.hasCity(city));
+    }
+    @Test
+    void testDelete() {
+        CityList cityList = mockCityList();
+        City city = new City("Regina", "Saskatchewan");
+        cityList.add(city);
+
+        // Verify city is there before deletion
+        assertTrue(cityList.hasCity(city));
+
+        // Delete the city
+        cityList.delete(city);
+
+
+        assertFalse(cityList.hasCity(city));
+        assertEquals(1, cityList.getCities().size());
+    }
+
+    @Test
+    void testDeleteException() {
+        CityList cityList = mockCityList();
+        City city = new City("Vancouver", "British Columbia");
+
+
+        assertFalse(cityList.hasCity(city));
+
+        // Illegal argument exception test
+        assertThrows(IllegalArgumentException.class, () -> {
+            cityList.delete(city);
+        });
     }
 }

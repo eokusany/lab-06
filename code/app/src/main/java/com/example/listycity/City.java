@@ -1,5 +1,8 @@
 package com.example.listycity;
 
+import java.util.Collections;
+import java.util.List;
+
 /**
  * This is a class that defines a City.
  */
@@ -11,6 +14,18 @@ public class City implements Comparable<City> {
         this.city = city;
         this.province = province;
     }
+    /**
+     * This checks if a city exists in the list
+     * @param city
+     * This is the city to check for
+     * @return
+     * Return true if the city is in the list, false otherwise
+     */
+    public boolean hasCity(City city) {
+        List<Object> cities = Collections.emptyList();
+        return false;
+    }
+
 
     String getCityName() {
         return this.city;
